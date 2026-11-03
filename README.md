@@ -10,7 +10,13 @@
 - Sau khi thử những cách cơ bản, tôi sẽ dùng burpsuite để kiểm tra xem sau khi đăng nhập thất bại, tôi có được thông tin gì hữu ích không và tôi đã xem được request mà mình đã gửi có thêm `debug=0` như thế này: <img width="1487" height="592" alt="image" src="https://github.com/user-attachments/assets/54c18238-19fe-4bf3-9f2c-e8b723551c8d" />
 
 - Đây là tính năng hiển thị thông tin gỡ lỗi (debug mode) được lập trình sẵn trong mã nguồn, khi `debug=0` có vẻ như trang web đã ẩn đi các thông tin bên dưới và chỉ trả lại `login failed`
-- Tôi nghĩ đây là điểm mà tôi có thể khai thác được. Bây giờ tôi sẽ dùng Repeater để sửa lại `debug` và sau khi làm xong, tôi nhận được response từ sever: <img width="751" height="443" alt="image" src="https://github.com/user-attachments/assets/254c21c1-25ad-4233-88bb-1e71314f8b6c" />
+- Tôi nghĩ đây là điểm mà tôi có thể khai thác được. Bây giờ tôi sẽ dùng Repeater để sửa lại `debug` và sau khi làm xong, tôi nhận được response từ sever:
+<img width="751" height="443" alt="image" src="https://github.com/user-attachments/assets/254c21c1-25ad-4233-88bb-1e71314f8b6c" />
+
 - Tôi đoán rằng đây là SQL INJECTION. Vì thế tôi sử dụng một vài payload cơ bản. Và sau một và payload, tôi đã tìm được flag qua payload `'OR'1'='1`: <img width="1492" height="812" alt="image" src="https://github.com/user-attachments/assets/f54d9262-30dc-4f54-b4a9-992633042a61" />
 
-
+### 2. Irish-Name-Repo 2
+- Vẫn là giao diện cũ, và mục tiêu của chúng ta vẫn là login vào để lấy flag
+- Vẫn như các bước ở bài 1, mở burpsuite, đổi debug=1 để tiếp tục khai thác
+- Sau khi research, tôi đã tìm được payload là `admin'--`. Thay đổi username=`admin'--`, ta nhận được flag từ response:
+<img width="745" height="517" alt="image" src="https://github.com/user-attachments/assets/440aae8e-80c4-4be6-b75c-79079175375b" />
